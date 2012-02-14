@@ -89,6 +89,7 @@ class MainPage(webapp.RequestHandler):
                 p = self.generate_facebook_avatar(facebook_id)
                 
             self.response.headers['Content-Type'] = "image/jpg"
+            self.response.headers['Cache-Control'] = "max-age=86400"
             self.response.out.write(p.image)
             
         except Exception,e:
